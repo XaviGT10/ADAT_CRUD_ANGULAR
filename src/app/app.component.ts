@@ -12,5 +12,5 @@ export class AppComponent {
   pagina2 = 'about.me/xavigiron'
   email1 = 'angel.blanco@live.u-tad.com';
   email2 = 'xavier.giron@live.u-tad.com';
-  rights = '© Todos los derechos reservados por U-Tad_va_a_acabar_con:nosotros SA.'
+  rights = '© Todos los derechos reservados por U-Tad_va_a_acabar_con_nosotros SA.'
 }
