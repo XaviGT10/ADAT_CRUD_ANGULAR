@@ -1,0 +1,17 @@
+*{
+    font-family: 'Architects Daughter', cursive;
+    font-family: 'Lobster', cursive;
+    font-family: 'Orbitron', sans-serif;
+}
+
+header{
+    height: 10%;
+}
+
+body{
+    height: 80%;
+}
+
+footer{
+    height: 10%;
+}
