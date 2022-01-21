@@ -1,0 +1,67 @@
+ use Formula1
+
+db.createCollection("Ganadores")
+
+ db.Ganadores.insert({Nombre: "Niki Lauda",
+...  Pais: "Austria",
+...  Victorias: "5",
+...  Año: "1975"
+... })
+
+ db.Ganadores.insert({
+... Nombre: "James Hunt",
+... Pais: "Inglaterra",
+... Victorias: "6",
+... Año: "1976"
+... })
+
+ db.Ganadores.insert({
+... Nombre: "Ayrton Senna",
+... Pais: "Brasil",
+... Victorias: "8",
+... Año: "1988"
+... })
+
+ db.Ganadores.insert({
+... Nombre: "Michael Shumacher",
+... Pais: "Alemania",
+... Victorias: "8",
+... Año: "1994"
+... })
+
+ db.Ganadores.insert({
+... Nombre: "Fernando Alonso",
+... Pais: "España",
+... Victorias: "7",
+... Año: "2005"
+... })
+
+ db.Ganadores.insert({
+... Nombre: "Kimi Raikkonen",
+... Pais: "Finlandia",
+... Victorias: "6",
+... Año: "20007"
+... })
+
+ db.Ganadores.insert({
+... Nombre: "Lewis Hamilton",
+... Pais: "Inglaterra",
+... Victorias: "5",
+... Año: "2008"
+... })
+
+
+ db.Ganadores.insert({
+... Nombre: "Jenson Button",
+... Pais: "Inglaterra",
+... Victorias: "6",
+... Año: "2009"
+... })
+
+ db.Ganadores.insert({
+... Nombre: "Max Verstappen",
+... Pais: "Holanda",
+... Victorias: "10",
+... Año: "2021"
+... })
+
