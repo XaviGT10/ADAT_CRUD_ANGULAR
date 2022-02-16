@@ -36,11 +36,11 @@ export class CrudService {
 
   // COGER TODOS LOS OBJETOS
 
-  GetF1s(){
+  getF1s(){
     return this.httpClient.get(`${this.REST_API}`);
   }
 
-  GetF1(id:any): Observable<any> {
+  getF1(id:any): Observable<any> {
     let API_URL = `${this.REST_API}/detail-f1/${id}`;
     return this.httpClient.get(API_URL, {headers: this.httpHeaders})
     .pipe(map((res: any) => {
@@ -48,6 +48,16 @@ export class CrudService {
     }),
     catchError(this.handleError))
   }
+
+  // UPDATE F1
+  // updateF1(id:any): Observable<any> {
+  //   let API_URL = `${this.REST_API}/deletef1/${id}`;
+  //   return this.httpClient.delete(API_URL, {headers: this.httpHeaders}).pipe(
+  //     catchError(this.handleError)
+  //   )
+  // }
+
+
 
 
   // BORRAR F1

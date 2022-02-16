@@ -18,7 +18,7 @@ export class DetailF1Component implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
     private crudService: CrudService
 
   ) {

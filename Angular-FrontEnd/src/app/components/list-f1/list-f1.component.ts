@@ -15,7 +15,7 @@ export class ListF1Component implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.crudService.getF1().subscribe(res =>{
+    this.crudService.getF1s().subscribe(res =>{
       console.log(res);
       this.Coches = res;
     })
