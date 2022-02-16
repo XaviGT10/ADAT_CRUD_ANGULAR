@@ -1,1 +1,33 @@
-<p>list-f1 works!</p>
+<div class="container-fluid">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 md-3 border-bottom">
+        <h2>Listado F1</h2>
+    </div>
+
+    <table class="table-responsive">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Team</th>
+                <th scope="col">Championships</th>
+                <th scope="col">Drivers</th>
+                <th scope="col">Foundation</th>
+                <th scope="col" class="text-center">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let f1 of Coches; let i = index">
+                <th scope="row">{{f1.id}}</th>
+                <td>{{f1.team}}</td>
+                <td>{{f1.championships}}</td>
+                <td>{{f1.drivers}}</td>
+                <td>{{f1.foundation}}</td>
+                <td class="text-center">
+                    <button class="btn btn-sm btn-primary" routerLink="/edit-f1/{{f1.id}}">Editar</button>
+                    <button class="btn btn-sm btn-danger" (click)="delete(f1.id)" >Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

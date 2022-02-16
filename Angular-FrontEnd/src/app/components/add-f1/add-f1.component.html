@@ -1,1 +1,43 @@
-<p>add-f1 works!</p>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <form [formGroup]="f1Form" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Team</label>
+                <input type="text" class="form-control" formControlName="team" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Championships</label>
+                <input type="text" class="form-control" formControlName="championships" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Drivers</label>
+                <input type="text" class="form-control" formControlName="drivers" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="date" class="col-sm-1 col-form-label">Foundations</label>
+                <div class="col-sm-4">
+                    <div class="input-group date" id="datepicker">
+                        <input type="text" class="form-control" formControlName="foundation_date" required>
+                        <span class="input-group-append">
+                            <span class="input-group-text bg-white">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <button type="submit" class="btn btn-primary btn-block">Insertar</button>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $('#datepicker').datepicker();
+    });
+</script>
