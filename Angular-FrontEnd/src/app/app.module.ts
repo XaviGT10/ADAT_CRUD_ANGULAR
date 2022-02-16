@@ -8,6 +8,7 @@ import { DetailF1Component } from './components/detail-f1/detail-f1.component';
 import { ListF1Component } from './components/list-f1/list-f1.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeF1Component } from './components/home-f1/home-f1.component';
 
 
 
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     AddF1Component,
     DetailF1Component,
-    ListF1Component
+    ListF1Component,
+    HomeF1Component
   ],
   imports: [
     BrowserModule,
