@@ -26,7 +26,7 @@ export class CrudService {
 
   // INSERTAR COCHE
   AddF1(data: F1): Observable<any> {
-    let API_URL = `${this.REST_API}/add-f1`;
+    let API_URL = `${this.REST_API}/createf1`;
     return this.httpClient.post(API_URL,data)
     .pipe(
       catchError(this.handleError)
@@ -37,11 +37,11 @@ export class CrudService {
   // COGER TODOS LOS OBJETOS
 
   getF1s(){
-    return this.httpClient.get(`${this.REST_API}`);
+    return this.httpClient.get(`${this.REST_API}/allf1`);
   }
 
   getF1(id:any): Observable<any> {
-    let API_URL = `${this.REST_API}/detail-f1/${id}`;
+    let API_URL = `${this.REST_API}/findf1/${id}`;
     return this.httpClient.get(API_URL, {headers: this.httpHeaders})
     .pipe(map((res: any) => {
       return res || {}
@@ -50,12 +50,12 @@ export class CrudService {
   }
 
   // UPDATE F1
-  // updateF1(id:any): Observable<any> {
-  //   let API_URL = `${this.REST_API}/deletef1/${id}`;
-  //   return this.httpClient.delete(API_URL, {headers: this.httpHeaders}).pipe(
-  //     catchError(this.handleError)
-  //   )
-  // }
+  updateF1(id:any, data:any): Observable<any> {
+     let API_URL = `${this.REST_API}/deletef1/${id}`;
+     return this.httpClient.delete(API_URL, {headers: this.httpHeaders}).pipe(
+       catchError(this.handleError)
+     )
+  }
 
 
 
@@ -63,7 +63,7 @@ export class CrudService {
   // BORRAR F1
 
   deleteF1(id:any): Observable<any> {
-    let API_URL = `${this.REST_API}/deletef1/${id}`;
+    let API_URL = `${this.REST_API}/removef1/${id}`;
     return this.httpClient.delete(API_URL, {headers: this.httpHeaders}).pipe(
       catchError(this.handleError)
     )

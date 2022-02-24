@@ -1,6 +1,6 @@
 const { response } = require("express");
-let express = require("express"),
-  path = require("path"),
+let express = require("express");
+path = require("path"),
   mongoose = require("mongoose"),
   cors = require("cors"),
   bodyParser = require("body-parser"),
@@ -48,6 +48,9 @@ app.get("/", (req, res) => {
   res.send("invaild endpoint");
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/node-backend'));
+})
 
 // error handler
 app.use(function (err, req, res, next) {

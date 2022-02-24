@@ -21,11 +21,11 @@ export class ListF1Component implements OnInit {
     })
   }
 
-  delete(id: any, i:any){
+  delete(id: any){
     console.log(id);
     if (window.confirm('Estas seguro de eliminarlo?')){
       this.crudService.deleteF1(id).subscribe((res) => {
-        this.Coches.splice(i,1);
+        this.Coches.splice(1);
       })
     }
   }

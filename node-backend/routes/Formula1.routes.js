@@ -5,7 +5,7 @@ const Formula1Route = express.Router();
 let Formula1 = require("../model/F1Model");
 
 // Add Formula1
-Formula1Route.route("/F1Team").post((req, res, next) => {
+Formula1Route.route("/createf1").post((req, res, next) => {
   Formula1.create(req.body, (error, data) => {
     if (error) {
       return next(error);
@@ -16,7 +16,7 @@ Formula1Route.route("/F1Team").post((req, res, next) => {
 });
 
 // Get Formula1
-Formula1Route.route("/F1Team").get((req, res) => {
+Formula1Route.route("/allf1").get((req, res) => {
   Formula1.find((error, data) => {
     if (error) {
       return next(error);
@@ -27,7 +27,7 @@ Formula1Route.route("/F1Team").get((req, res) => {
 });
 
 // Get RecipiesById
-Formula1Route.route("/F1Team/:id").get((req, res) => {
+Formula1Route.route("/findf1/:id").get((req, res) => {
   Formula1.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error);
@@ -38,7 +38,7 @@ Formula1Route.route("/F1Team/:id").get((req, res) => {
 });
 
 // Update Formula1
-Formula1Route.route("/F1Team/:id").put((req, res, next) => {
+Formula1Route.route("/updatef1/:id").put((req, res, next) => {
   Formula1.findByIdAndUpdate(
     req.params.id,
     {
@@ -56,7 +56,7 @@ Formula1Route.route("/F1Team/:id").put((req, res, next) => {
 });
 
 // Delete Formula1 registro
-Formula1Route.route("/F1Team/:id").delete((req, res, next) => {
+Formula1Route.route("/removef1/:id").delete((req, res, next) => {
   Formula1.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
