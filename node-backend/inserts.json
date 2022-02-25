@@ -1,12 +1,7 @@
 [
     {
         "team": "McLaren",
-        "championships": [
-            {
-                "year": "21/06/1974",
-                "driver": "Nikki Lauda"
-            }
-        ],
+        "championships": "1",
         "drivers": "Lando Norris",
         "foundation_date": "01/01/1950"
     }

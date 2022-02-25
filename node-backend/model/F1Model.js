@@ -6,7 +6,7 @@ let Formula1 = new Schema({
   team: String,
   championships: String,
   drivers: String,
-  foundation_date: Date
+  foundation_date: String
 });
 
 module.exports = mongoose.model("Formula1", Formula1);
