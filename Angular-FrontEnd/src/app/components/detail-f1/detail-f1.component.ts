@@ -48,7 +48,7 @@ export class DetailF1Component implements OnInit {
     this.crudService.updateF1(this.getId, this.updateForm.value)
     .subscribe(() => {
       console.log('Datos cambiados satisfactoriamente')
-      this.ngZone.run(() => this.router.navigateByUrl('/list-f1'))
+      this.ngZone.run(() => this.router.navigateByUrl('/allf1'))
     }, (err) => {
       console.log(err);
     });
