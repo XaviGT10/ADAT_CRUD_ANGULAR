@@ -8,9 +8,9 @@ let Formula1 = require("../model/F1Model");
 Formula1Route.route("/createf1").post((req, res, next) => {
   Formula1.create(req.body, (error, data) => {
     if (error) {
-      return next(error);
+      return res.send(error);
     } else {
-      res.json(data);
+      return res.json(data);
     }
   });
 });
@@ -19,18 +19,18 @@ Formula1Route.route("/createf1").post((req, res, next) => {
 Formula1Route.route("/allf1").get((req, res) => {
   Formula1.find((error, data) => {
     if (error) {
-      return next(error);
+      return res.send(data);
     } else {
-      res.json(data);
+      return res.json(data);
     }
   });
 });
 
 // Get RecipiesById
-Formula1Route.route("/findf1/:id").get((req, res) => {
+Formula1Route.route("/findf1/:id").get((req, res, next) => {
   Formula1.findById(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      return res.send(error);
     } else {
       res.json(data);
     }
@@ -38,18 +38,18 @@ Formula1Route.route("/findf1/:id").get((req, res) => {
 });
 
 // Update Formula1
-Formula1Route.route("/updatef1/:id").put((req, res, next) => {
-  Formula1.findByIdAndUpdate(
-    req.params.id,
-    {
-      $set: req.body,
-    },
+Formula1Route.route("/updatef1/:id").put((req, res) => {
+  Formula1.findOneAndUpdate(
+    { _id: req.params.id },
+    req.body
+    ,
     (error, data) => {
       if (error) {
-        return next(error);
+        return res.send(error);
       } else {
-        res.json(data);
         console.log("Formula 1 team updated successfully!");
+        return res.json(req.body);
+
       }
     }
   );

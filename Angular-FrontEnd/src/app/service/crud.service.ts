@@ -52,7 +52,7 @@ export class CrudService {
   // UPDATE F1
   updateF1(id:any, data:any): Observable<any> {
      let API_URL = `${this.REST_API}/updatef1/${id}`;
-     return this.httpClient.delete(API_URL, {headers: this.httpHeaders}).pipe(
+     return this.httpClient.put(API_URL, {body: data}).pipe(
        catchError(this.handleError)
      )
   }

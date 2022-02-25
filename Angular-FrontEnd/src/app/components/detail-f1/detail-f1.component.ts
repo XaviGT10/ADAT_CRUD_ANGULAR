@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { CrudService } from './../../service/crud.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CrudService } from 'src/app/service/crud.service';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-detail-f1',
@@ -10,48 +10,53 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class DetailF1Component implements OnInit {
 
-  getId: any;
-  updateForm: FormGroup
-
+  idPassed: any;
+  updateForm: FormGroup;
+  
 
   constructor(
     public formBuilder: FormBuilder,
-    private router: Router,
-    private ngZone: NgZone,
-    private activatedRoute: ActivatedRoute,
-    private crudService: CrudService
-
+    public router: Router,
+    public ngZone: NgZone,
+    public routenow: ActivatedRoute,
+    private crudService: CrudService,
   ) {
-    this.getId = this.activatedRoute.snapshot.params.get('id');
-    this.crudService.getF1(this.getId).subscribe(res => {
-      this.updateForm.setValue({
-        team: res['team'],
-        championships: res['championships'],
-        drivers: res['drivers'],
-        foundation_date: res['foundation_date']
+    this.updateForm = this.formBuilder.group({
+      team: ['team'],
+      championships: ['championships'],
+      drivers: ['drivers'],
+      foundation_date: ['foundation_date']
+    })
+
+    this.crudService.getF1(this.idPassed).subscribe(res => {
+      this.updateForm = this.formBuilder.group({
+        team: res.data.team,
+        championships: res.data.championships,
+        drivers: res.data.drivers,
+        foundation_date: res.data.foundation_date
       })
     })
-
-    this.updateForm = this.formBuilder.group({
-      team: [''],
-      championships: [''],
-      drivers: [''],
-      foundation_date: ['']
-    })
-
-  }
+   }
 
   ngOnInit(): void {
+    this.routenow.paramMap.subscribe(params => {
+      this.idPassed = params.get("id")
+    })
   }
 
-  onUpdate(): any {
-    this.crudService.updateF1(this.getId, this.updateForm.value)
-    .subscribe(() => {
-      console.log('Datos cambiados satisfactoriamente')
+
+
+    onUpdate(): any {
+      
+      this.crudService.updateF1(this.idPassed, this.updateForm.value)
+      .subscribe(() => {
+        console.log("Data updated!");
+        this.updateForm.value
+      }, (err) => {
+        console.log(err);
+      });
       this.ngZone.run(() => this.router.navigateByUrl('/allf1'))
-    }, (err) => {
-      console.log(err);
-    });
-  }
+    }
+
 
 }
