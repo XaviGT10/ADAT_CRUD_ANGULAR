@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 let Formula1 = new Schema({
   id: String,
   team: String,
-  championships: [{ year: Date, driver: String }],
+  championships: String,
   drivers: String,
   foundation_date: Date
 });

@@ -33,7 +33,7 @@ export class AddF1Component implements OnInit {
     this.crudService.AddF1(this.f1Form.value)
     .subscribe(() => {
       console.log('Envio satisfactorio de los datos.')
-      this.ngZone.run(() => this.router.navigateByUrl('/createf1'))
+      this.ngZone.run(() => this.router.navigateByUrl('/list-f1'))
     }, (err) => {
       console.log(err);
     });
